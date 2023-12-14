@@ -4,6 +4,7 @@ const { createApp } = Vue
     data() {
       return {
         findTxt: "",
+        currentUser: 0,
         contacts: [
             {
                 name: 'Michele',
@@ -170,6 +171,8 @@ const { createApp } = Vue
       }
     },
     methods:{
-        
+        changeUser(index){
+            this.currentUser = index;
+        }
     }
   }).mount('#app')

@@ -14,11 +14,11 @@ body{
     background-color: #EAEAEA;
 }
 
-.user, .chat-container{
+.user, .chat-container, .activechat{
     padding: 10px;
 }
 
-.user img, .chat-container img{
+.user img, .chat-container img, .activechat img{
     width: 50px;
     border-radius: 50%;
 }
@@ -39,7 +39,7 @@ body{
 }
 
 .search{
-    padding: 10px;
+    padding: 5px;
 }
 
 #findchat{
@@ -62,4 +62,21 @@ ul{
 .chat{
     background-image: url("../img/mine.jpg");
     width: 100%;
+    height: 500px;
+}
+
+.msg{
+    border-radius: 20px;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.sent{
+    background-color: #D5F9BA;
+    float: right;
+}
+
+.received{
+    background-color: #FFFFFF;
+    float: left;
 }
