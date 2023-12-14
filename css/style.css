@@ -3,3 +3,63 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+body{
+    background-image: linear-gradient(to bottom, #009688 10vh, #DBDBD3 10vh, #DBDBD3 100%);
+}
+
+.app-container{
+    height: calc(100vh - 30px);
+    margin: 15px 0;
+    background-color: #EAEAEA;
+}
+
+.user, .chat-container{
+    padding: 10px;
+}
+
+.user img, .chat-container img{
+    width: 50px;
+    border-radius: 50%;
+}
+
+.notify{
+    background-color: #8EDAFC;
+    padding: 10px;
+}
+
+.fa-bell-slash{
+    background-color: white;
+    border-radius: 50%;
+    color: #8EDAFC;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search{
+    padding: 10px;
+}
+
+#findchat{
+    width: 100%;
+}
+
+.chatlist{
+    max-height: 520px;
+    overflow-y: auto;
+}
+
+.chat-container{
+    border-bottom: 1px solid gray;
+}
+
+ul{
+    padding: 0;
+}
+
+.chat{
+    background-image: url("../img/mine.jpg");
+    width: 100%;
+}

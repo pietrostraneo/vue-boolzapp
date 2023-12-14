@@ -11,7 +11,68 @@
 <body>
     
     <div id="app">
-        
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="app-container d-flex">
+                        <div class="col-4">
+                            <div class="user d-flex align-items-center justify-content-between">
+                                <div>
+                                    <img src="./img/avatar_io.jpg" alt="io"><span> Sofia</span>
+                                </div>
+                                <div class="buttons d-flex gap-3">
+                                    <i class="fas fa-circle-notch"></i>
+                                    <i class="fas fa-message"></i>
+                                    <i class="fas fa-ellipsis-vertical"></i>
+                                </div>
+                            </div>
+                            <div class="notify d-flex gap-1">
+                                <i class="fas fa-bell-slash"></i>
+                                <div>
+                                    <span>Ricevi notifiche di nuovi messaggi</span>
+                                    <div><a href="#">Attiva notifiche desktop</a></div>
+                                </div>
+                            </div>
+                            <div class="search">
+                                <input type="text" name="findchat" id="findchat" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="findTxt">
+                            </div>
+                            <div class="chatlist">
+                                <ul>
+                                    <li class="list-unstyled" v-for="(msg, index) in contacts">
+                                        <div class="chat-container d-flex">
+                                            <img :src="msg.avatar" alt="msg.name">
+                                            <div>
+                                                <span>{{msg.name}}</span>
+                                                <div><span>Last message</span></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="activechat">
+                                <img :src="" alt="">
+                            </div>
+                            <div class="chat">
+                                
+                            </div>
+                            <div class="texting d-flex">
+                                <div class="emoji">
+                                    <i class="fa-regular fa-face-smile"></i>
+                                </div>
+                                <div class="text-input">
+                                    <input type="text" name="sendText" id="sendText" placeholder="Scrivi un messaggio">
+                                </div>
+                                <div class="audio">
+                                    <i class="fas fa-microphone"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
