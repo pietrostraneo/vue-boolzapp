@@ -39,7 +39,7 @@
                             <div class="chatlist">
                                 <ul>
                                     <li class="list-unstyled" v-for="(msg, index) in contacts" @click="changeUser(index)">
-                                        <div class="chat-container d-flex">
+                                        <div class="chat-container d-flex" :class="">
                                             <img :src="msg.avatar" alt="msg.name">
                                             <div>
                                                 <span>{{msg.name}}</span>
@@ -60,20 +60,20 @@
                                     <div><span>Ultimo accesso oggi alle 15:00</span></div>
                                 </div>
                             </div>
-                            <div class="chat">
+                            <div class="chat clearfix">
                                 <div class="msg" v-for="message in contacts[currentUser].messages" :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }">
                                     <p> {{message.message}} </p>
                                     <p> {{message.date}} </p>
                                 </div>
                             </div>
                             <div class="texting d-flex">
-                                <div class="emoji">
+                                <div class="col-1 d-flex justify-content-center align-items-center">
                                     <i class="fa-regular fa-face-smile"></i>
                                 </div>
-                                <div class="text-input">
-                                    <input type="text" name="sendText" id="sendText" placeholder="Scrivi un messaggio">
+                                <div class="col-10">
+                                    <input type="text" name="sendText" id="sendText" placeholder="Scrivi un messaggio" class="form-control">
                                 </div>
-                                <div class="audio">
+                                <div class="col-1 d-flex justify-content-center align-items-center">
                                     <i class="fas fa-microphone"></i>
                                 </div>
                             </div>
