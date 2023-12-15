@@ -5,6 +5,7 @@ const { createApp } = Vue
       return {
         findTxt: "",
         newTxt: "",
+        cursor: false,
         texting: false,
         currentUser: 0,
         contacts: [
