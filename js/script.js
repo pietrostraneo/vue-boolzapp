@@ -5,6 +5,7 @@ const { createApp } = Vue
       return {
         findTxt: "",
         newTxt: "",
+        texting: false,
         currentUser: 0,
         contacts: [
             {
@@ -175,25 +176,37 @@ const { createApp } = Vue
         changeUser(index){
             this.currentUser = index;
         },
+        changeIcon(){
+            this.texting = true
+            if(this.newTxt == ""){
+                this.texting = false
+            }
+        },
         newMsg(){
             const DateTime = luxon.DateTime;
             let currentDate = DateTime.local().toFormat('dd/MM/yyyy HH:mm:ss');
-            let newMessage = {
-                date: currentDate,
-                message: this.newTxt,
-                status: 'sent'
-            }
-            this.contacts[this.currentUser].messages.push(newMessage);
-            this.newTxt = "";
+            if(this.newTxt == ""){
 
-            setTimeout(() => {
-                let comMsg = {
+            }
+            else{
+                let newMessage = {
                     date: currentDate,
-                    message: "ok!",
-                    status: 'received'
-                }
-                this.contacts[this.currentUser].messages.push(comMsg);
-            }, 1000);
+                    message: this.newTxt,
+                    status: 'sent'
+                };
+                this.contacts[this.currentUser].messages.push(newMessage);
+                this.newTxt = "";
+
+                setTimeout(() => {
+                    let comMsg = {
+                        date: currentDate,
+                        message: "ok!",
+                        status: 'received'
+                    }
+                    this.contacts[this.currentUser].messages.push(comMsg);
+                }, 1000);
+            }
+
         },
         searchChat(){
             this.contacts.forEach((elem) => {

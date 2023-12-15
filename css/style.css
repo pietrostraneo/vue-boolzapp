@@ -82,6 +82,8 @@ ul{
     background-image: url("../img/mine.jpg");
     height: 670px;
     padding: 25px;
+    max-height: 670px;
+    overflow-y: scroll;
 }
 
 .msg{
