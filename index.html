@@ -34,11 +34,11 @@
                                 </div>
                             </div>
                             <div class="search">
-                                <input type="text" name="findchat" id="findchat" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="findTxt">
+                                <input type="text" name="findchat" id="findchat" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="findTxt" @keyup="searchChat">
                             </div>
                             <div class="chatlist">
                                 <ul>
-                                    <li class="list-unstyled" v-for="(msg, index) in contacts" @click="changeUser(index)">
+                                    <li class="list-unstyled" v-for="(msg, index) in contacts" @click="changeUser(index)" v-show="msg.visible">
                                         <div class="chat-container d-flex justify-content-between" :class="(currentUser == index ? 'highlighted' : '')">
                                             <div class="d-flex align-items-center gap-2">
                                                 <img :src="msg.avatar" alt="msg.name">

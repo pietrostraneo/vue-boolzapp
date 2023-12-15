@@ -195,5 +195,15 @@ const { createApp } = Vue
                 this.contacts[this.currentUser].messages.push(comMsg);
             }, 1000);
         },
+        searchChat(){
+            this.contacts.forEach((elem) => {
+                if(elem.name.toLowerCase().includes(this.findTxt.toLowerCase())){
+                    elem.visible = true;
+                }
+                else{
+                    elem.visible = false
+                }
+            })
+        }
     }
   }).mount('#app')
