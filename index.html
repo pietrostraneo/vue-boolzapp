@@ -21,7 +21,7 @@
                                     <img src="./img/avatar_io.jpg" alt="io"><span> Sofia</span>
                                 </div>
                                 <div class="buttons d-flex gap-3">
-                                    <i class="fas fa-circle-notch"></i>
+                                    <i class="fas fa-circle-notch fw-bolder"></i>
                                     <i class="fas fa-message"></i>
                                     <i class="fas fa-ellipsis-vertical"></i>
                                 </div>
@@ -39,11 +39,16 @@
                             <div class="chatlist">
                                 <ul>
                                     <li class="list-unstyled" v-for="(msg, index) in contacts" @click="changeUser(index)">
-                                        <div class="chat-container d-flex" :class="">
-                                            <img :src="msg.avatar" alt="msg.name">
+                                        <div class="chat-container d-flex justify-content-between" :class="(currentUser == index ? 'highlighted' : '')">
+                                            <div class="d-flex align-items-center gap-2">
+                                                <img :src="msg.avatar" alt="msg.name">
+                                                <div>
+                                                    <span>{{msg.name}}</span>
+                                                    <div><span class="last">{{msg.messages[msg.messages.length-1].message}}</span></div>
+                                                </div>
+                                            </div>
                                             <div>
-                                                <span>{{msg.name}}</span>
-                                                <div><span>Last message</span></div>
+                                                <span class="last">{{msg.messages[msg.messages.length-1].date}}</span>
                                             </div>
                                         </div>
                                     </li>
@@ -51,19 +56,26 @@
                             </div>
                         </div>
                         <div class="col-8">
-                            <div class="activechat d-flex align-items-center">
-                                <img :src="contacts[currentUser].avatar" alt="">
-                                <div>
-                                    <span>
-                                        {{ contacts[currentUser].name }}
-                                    </span>
-                                    <div><span>Ultimo accesso oggi alle 15:00</span></div>
+                            <div class="activechat d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <img :src="contacts[currentUser].avatar" alt="contacts[currentUser].name">
+                                    <div>
+                                        <span>
+                                            {{ contacts[currentUser].name }}
+                                        </span>
+                                        <div><span>Ultimo accesso oggi alle 15:00</span></div>
+                                    </div>
+                                </div>
+                                <div class="buttons d-flex gap-4 align-items-center me-3">
+                                    <i class="fas fa-magnifying-glass"></i>
+                                    <i class="fas fa-paperclip"></i>
+                                    <i class="fas fa-ellipsis-vertical"></i>
                                 </div>
                             </div>
-                            <div class="chat clearfix">
-                                <div class="msg" v-for="message in contacts[currentUser].messages" :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }">
-                                    <p> {{message.message}} </p>
-                                    <p> {{message.date}} </p>
+                            <div class="chat">
+                                <div class="msg d-flex justify-content-between" v-for="message in contacts[currentUser].messages" :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }">
+                                    <span> {{message.message}} </span>
+                                    <div><span class="date ms-3"> {{message.date}} </span></div>
                                 </div>
                             </div>
                             <div class="texting d-flex">
@@ -85,6 +97,7 @@
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
     <script src="./js/script.js" type="text/javascript"></script>
 </body>
 </html>

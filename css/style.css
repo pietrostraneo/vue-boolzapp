@@ -18,6 +18,10 @@ body{
     padding: 10px;
 }
 
+.user{
+    border-right: 1px solid #c0c0c0;
+}
+
 .user img, .chat-container img, .activechat img{
     width: 50px;
     border-radius: 50%;
@@ -25,7 +29,7 @@ body{
 
 .notify{
     background-color: #8EDAFC;
-    padding: 10px;
+    padding: 12px;
 }
 
 .fa-bell-slash{
@@ -47,28 +51,49 @@ body{
 }
 
 .chatlist{
-    max-height: 520px;
+    height: 76%;
     overflow-y: auto;
+    background-color: #FFFFFF;
 }
 
-.chat-container{
-    border-bottom: 1px solid gray;
+.highlighted{
+    background-color: #EAEAEA;
+}
+
+li{
+    border-bottom: 1px solid #f0f0f0;
+}
+
+li:last-of-type{
+    border: none;
+}
+
+.chat-container .last{
+    color: #B1B1B1;
 }
 
 ul{
     padding: 0;
+    max-height: 100%;
+    overflow: scroll;
 }
 
 .chat{
     background-image: url("../img/mine.jpg");
-    height: 600px;
+    height: 670px;
     padding: 25px;
 }
 
 .msg{
     border-radius: 20px;
-    margin: 10px 0;
+    margin: 5px 0;
     padding: 10px;
+    font-size: 13px;
+    width: auto;
+}
+
+.date, .last{
+    font-size: 9px;
 }
 
 .sent{
@@ -81,10 +106,22 @@ ul{
     float: left;
 }
 
+.sent, .received{
+    content: "";
+    clear: both;
+    display: table;
+}
+
 .texting{
     padding: 5px;
 }
 
 i{
     cursor: pointer;
+    color: #B1B1B1;
+    font-size: 22px;
+}
+
+.texting i{
+    color: gray;
 }
