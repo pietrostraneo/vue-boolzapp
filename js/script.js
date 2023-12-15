@@ -4,6 +4,7 @@ const { createApp } = Vue
     data() {
       return {
         findTxt: "",
+        newTxt: "",
         currentUser: 0,
         contacts: [
             {
@@ -173,6 +174,26 @@ const { createApp } = Vue
     methods:{
         changeUser(index){
             this.currentUser = index;
-        }
+        },
+        newMsg(){
+            const DateTime = luxon.DateTime;
+            let currentDate = DateTime.local().toFormat('dd/MM/yyyy HH:mm:ss');
+            let newMessage = {
+                date: currentDate,
+                message: this.newTxt,
+                status: 'sent'
+            }
+            this.contacts[this.currentUser].messages.push(newMessage);
+            this.newTxt = "";
+
+            setTimeout(() => {
+                let comMsg = {
+                    date: currentDate,
+                    message: "ok!",
+                    status: 'received'
+                }
+                this.contacts[this.currentUser].messages.push(comMsg);
+            }, 1000);
+        },
     }
   }).mount('#app')

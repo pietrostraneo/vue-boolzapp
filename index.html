@@ -83,7 +83,7 @@
                                     <i class="fa-regular fa-face-smile"></i>
                                 </div>
                                 <div class="col-10">
-                                    <input type="text" name="sendText" id="sendText" placeholder="Scrivi un messaggio" class="form-control">
+                                    <input type="text" name="sendText" id="sendText" placeholder="Scrivi un messaggio" class="form-control" v-model="newTxt" @keyup.enter="newMsg()">
                                 </div>
                                 <div class="col-1 d-flex justify-content-center align-items-center">
                                     <i class="fas fa-microphone"></i>
@@ -97,6 +97,7 @@
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
     <script src="./js/script.js" type="text/javascript"></script>
 </body>
