@@ -237,7 +237,12 @@ const { createApp } = Vue
             this.cursor.index = index;
         },
         deleteMsg(index){
+            console.log(this.contacts[this.currentUser].messages)
+            alert(`test + ${index}`)
             this.contacts[this.currentUser].messages.splice(index, 1);
+            console.log(this.contacts[this.currentUser].messages)
+            this.cursor.visible = false;
+            this.cursor.index = false;
         },
         deleteChat(){
             this.contacts.splice(this.currentUser, 1);

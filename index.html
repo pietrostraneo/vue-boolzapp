@@ -16,7 +16,7 @@
                 <div class="col-12">
                     <div class="app-container d-flex">
                         <div class="col-4">
-                            <div class="user d-flex align-items-center justify-content-between">
+                            <div class="col-12 user d-flex align-items-center justify-content-between">
                                 <div>
                                     <img src="./img/avatar_io.jpg" alt="io"><span> Sofia</span>
                                 </div>
@@ -26,17 +26,17 @@
                                     <i class="fas fa-ellipsis-vertical"></i>
                                 </div>
                             </div>
-                            <div class="notify d-flex gap-1" v-if="!notifyOn">
+                            <div class="col-12 notify d-flex gap-1" v-if="!notifyOn">
                                 <i class="fas fa-bell-slash"></i>
                                 <div>
                                     <span>Ricevi notifiche di nuovi messaggi</span>
                                     <div><a href="#" @click="notifyAlert()">Attiva notifiche desktop</a></div>
                                 </div>
                             </div>
-                            <div class="search">
+                            <div class="col-12 search">
                                 <input type="text" name="findchat" id="findchat" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="findTxt" @keyup="searchChat">
                             </div>
-                            <div class="chatlist" :class="notifyOn ? 'chatlistFull' : ''">
+                            <div class="col-12 chatlist" :class="notifyOn ? 'chatlistFull' : ''">
                                 <ul>
                                     <li class="list-unstyled" v-for="(msg, index) in contacts" @click="changeUser(index); cursor.visible = false" v-show="msg.visible">
                                         <div class="chat-container d-flex justify-content-between" :class="(currentUser == index ? 'highlighted' : '')">
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="col-8">
-                            <div class="activechat d-flex align-items-center justify-content-between">
+                            <div class="col-12 activechat d-flex align-items-center justify-content-between position-relative">
                                 <div class="d-flex align-items-center">
                                     <img :src="contacts[currentUser].avatar" alt="contacts[currentUser].name">
                                     <div>
@@ -71,14 +71,14 @@
                                     <i class="fas fa-paperclip"></i>
                                     <i class="fas fa-ellipsis-vertical" @click="showOptions = !showOptions"></i>
                                 </div>
-                            </div>
-                            <div class="chat">
                                 <div class="opt-dropdown text-center" v-if="showOptions">
                                     <ul class="list-unstyled">
                                         <li><a href="#" class="text-decoration-none" @click="activateNot()">Disattiva notifiche</a></li>
                                         <li><a href="#" class="text-decoration-none" @click="deleteChat()">Cancella chat</a></li>
                                     </ul>
                                 </div>
+                            </div>
+                            <div class="col-12 chat">
                                 <div class="msg d-flex justify-content-between" v-for="message, index in contacts[currentUser].messages" :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }" @click="cursorVisible != cursorVisible">
                                     <div>
                                         <span> {{message.message}} </span>
@@ -94,6 +94,8 @@
                                         <div><span class="date ms-3"> {{message.date}} </span></div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-12 texting d-flex">
                                 <div class="notifyOn slide-in-bottom" v-if="notifyMsg">
                                     Hai attivato le notifiche desktop.
                                 </div>
@@ -101,8 +103,6 @@
                                     Hai disattivato le notifiche desktop.
                                 </div>
                                 <emoji-picker v-if="showEmoji" class="light emoji"></emoji-picker>
-                            </div>
-                            <div class="texting d-flex">
                                 <div class="col-1 d-flex justify-content-center align-items-center">
                                     <i class="fa-regular fa-face-smile" @click="showEmoji = !showEmoji"></i>
                                 </div>

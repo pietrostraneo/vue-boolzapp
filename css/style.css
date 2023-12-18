@@ -121,6 +121,7 @@ ul{
 
 .texting{
     padding: 5px;
+    position: relative;
 }
 
 i{
@@ -140,8 +141,8 @@ i{
 
 .opt-dropdown{
     position: absolute;
-    right: 75px;
-    top: 85px;
+    top: 100%;
+    right: 0;
     background-color: #FFFFFF;
     border: 1px solid #EAEAEA;
 }
@@ -173,14 +174,13 @@ i{
     border-radius: 10px;
     font-size: 12px;
     position: absolute;
-    top: 700px;
-    left: 800px;
+    bottom: 120%;
+    left: 35%;
 }
 
 .emoji{
     position: absolute;
-    top: 350px;
-    left: 520px;
+    bottom: 110%;
 }
 
 .slide-in-bottom {
