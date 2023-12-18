@@ -138,23 +138,31 @@ i{
     text-align: right;
 }
 
+.opt-dropdown{
+    position: absolute;
+    right: 75px;
+    top: 85px;
+    background-color: #FFFFFF;
+    border: 1px solid #EAEAEA;
+}
+
 .my-dropdown{
-    border: 1px solid black;
+    border: 1px solid #EAEAEA;
     border-radius: 10px;
     position: absolute;
     background-color: #FFFFFF;
 }
 
-.my-dropdown li{
+.my-dropdown li, .opt-dropdown li{
     padding: 10px;
     border-bottom: 1px solid #EAEAEA;
 }
 
-.my-dropdown li:hover{
-    background-color: cyan;
+.my-dropdown li:hover, .opt-dropdown li:hover{
+    background-color: #8EDAFC;
 }
 
-.my-dropdown a{
+.my-dropdown a, .opt-dropdown a{
     color: black;
 }
 

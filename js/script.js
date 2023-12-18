@@ -13,8 +13,9 @@ const { createApp } = Vue
         },
         notifyOn: false,
         notifyMsg: false,
+        notifyMsgg: false,
         showEmoji: false,
-        audio: false,
+        showOptions: false,
         contacts: [
             {
                 name: 'Michele',
@@ -237,6 +238,23 @@ const { createApp } = Vue
         },
         deleteMsg(index){
             this.contacts[this.currentUser].messages.splice(index, 1);
+        },
+        deleteChat(){
+            this.contacts.splice(this.currentUser, 1);
+            this.showOptions = false;
+        },
+        activateNot(){
+            if(this.notifyOn){
+                this.notifyOn = false;
+                this.notifyMsgg = true;
+                if(notifyMsgg = true){
+                    setTimeout(() => {
+                        this.notifyMsgg = false;
+                    }, 2500);
+                }
+                this.showOptions = false;
+            }
+            this.showOptions = false;
         },
         notifyAlert(){
             this.notifyOn = true;

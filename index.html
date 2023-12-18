@@ -69,10 +69,16 @@
                                 <div class="buttons d-flex gap-4 align-items-center me-3">
                                     <i class="fas fa-magnifying-glass"></i>
                                     <i class="fas fa-paperclip"></i>
-                                    <i class="fas fa-ellipsis-vertical"></i>
+                                    <i class="fas fa-ellipsis-vertical" @click="showOptions = !showOptions"></i>
                                 </div>
                             </div>
                             <div class="chat">
+                                <div class="opt-dropdown text-center" v-if="showOptions">
+                                    <ul class="list-unstyled">
+                                        <li><a href="#" class="text-decoration-none" @click="activateNot()">Disattiva notifiche</a></li>
+                                        <li><a href="#" class="text-decoration-none" @click="deleteChat()">Cancella chat</a></li>
+                                    </ul>
+                                </div>
                                 <div class="msg d-flex justify-content-between" v-for="message, index in contacts[currentUser].messages" :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }" @click="cursorVisible != cursorVisible">
                                     <div>
                                         <span> {{message.message}} </span>
@@ -90,6 +96,9 @@
                                 </div>
                                 <div class="notifyOn slide-in-bottom" v-if="notifyMsg">
                                     Hai attivato le notifiche desktop.
+                                </div>
+                                <div class="notifyOn slide-in-bottom" v-if="notifyMsgg">
+                                    Hai disattivato le notifiche desktop.
                                 </div>
                                 <emoji-picker v-if="showEmoji" class="light emoji"></emoji-picker>
                             </div>
