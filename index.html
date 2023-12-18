@@ -44,11 +44,11 @@
                                                 <img :src="msg.avatar" alt="msg.name">
                                                 <div>
                                                     <span>{{msg.name}}</span>
-                                                    <div><span class="last">{{msg.messages[msg.messages.length-1].message}}</span></div>
+                                                    <div><span class="last" v-if="msg.messages.length > 0">{{msg.messages[msg.messages.length-1].message}}</span></div>
                                                 </div>
                                             </div>
                                             <div>
-                                                <span class="last">{{msg.messages[msg.messages.length-1].date}}</span>
+                                                <span class="last" v-if="msg.messages.length > 0">{{msg.messages[msg.messages.length-1].date}}</span>
                                             </div>
                                         </div>
                                     </li>
