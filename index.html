@@ -38,7 +38,7 @@
                             </div>
                             <div class="chatlist">
                                 <ul>
-                                    <li class="list-unstyled" v-for="(msg, index) in contacts" @click="changeUser(index)" v-show="msg.visible">
+                                    <li class="list-unstyled" v-for="(msg, index) in contacts" @click="changeUser(index); cursor.visible = false" v-show="msg.visible">
                                         <div class="chat-container d-flex justify-content-between" :class="(currentUser == index ? 'highlighted' : '')">
                                             <div class="d-flex align-items-center gap-2">
                                                 <img :src="msg.avatar" alt="msg.name">
@@ -74,11 +74,18 @@
                             </div>
                             <div class="chat">
                                 <div class="msg d-flex justify-content-between" v-for="message, index in contacts[currentUser].messages" :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }" @click="cursorVisible != cursorVisible">
-                                    <span> {{message.message}} </span>
-                                    <div><span class="date ms-3"> {{message.date}} </span></div>
-                                    <i class="fas fa-angle-down" @click="showDrop(index)"></i>
-                                    <div class="dropdown" v-if="cursor.visible == true && cursor.index == index ">
-                                        ciao
+                                    <div>
+                                        <span> {{message.message}} </span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <i class="fas fa-angle-down" @click="showDrop(index)"></i>
+                                        <div class="my-dropdown text-center mt-3" v-if="cursor.visible == true && cursor.index == index ">
+                                            <ul class="list-unstyled">
+                                                <li><a href="#" class="text-decoration-none">Info messaggio</a></li>
+                                                <li><a href="#" class="text-decoration-none" @click="deleteMsg(index)">Cancella messaggio</a></li>
+                                            </ul>
+                                        </div>
+                                        <div><span class="date ms-3"> {{message.date}} </span></div>
                                     </div>
                                 </div>
                             </div>

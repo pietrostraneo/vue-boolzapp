@@ -188,7 +188,7 @@ const { createApp } = Vue
         },
         newMsg(){
             const DateTime = luxon.DateTime;
-            let currentDate = DateTime.local().toFormat('dd/MM/yyyy HH:mm:ss');
+            let currentDate = DateTime.local().toFormat('dd/MM/yyyy HH:mm').slice(11);
             if(this.newTxt == ""){
 
             }
@@ -224,12 +224,15 @@ const { createApp } = Vue
             })
         },
         showDrop(index){
-            if(this.cursor.index != false && this.cursor.index != index){
+            if(this.cursor.visible != false && this.cursor.index != index){
                 this.cursor.visible = false;
                 this.cursor.index = false;
             }
-            this.cursor.visible = true;
+            this.cursor.visible = this.cursor.visible ? false : true
             this.cursor.index = index;
+        },
+        deleteMsg(index){
+            this.contacts[this.currentUser].messages.splice(index, 1);
         }
     }
   }).mount('#app')
