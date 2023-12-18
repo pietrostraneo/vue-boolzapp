@@ -5,9 +5,12 @@ const { createApp } = Vue
       return {
         findTxt: "",
         newTxt: "",
-        cursor: false,
         texting: false,
         currentUser: 0,
+        cursor: {
+            visible: false,
+            index: false
+        },
         contacts: [
             {
                 name: 'Michele',
@@ -17,7 +20,7 @@ const { createApp } = Vue
                     {
                         date: '10/01/2020 15:30:55',
                         message: 'Hai portato a spasso il cane?',
-                        status: 'sent'
+                        status: 'sent',
                     },
                     {
                         date: '10/01/2020 15:50:00',
@@ -197,6 +200,7 @@ const { createApp } = Vue
                 };
                 this.contacts[this.currentUser].messages.push(newMessage);
                 this.newTxt = "";
+                this.texting = false;
 
                 setTimeout(() => {
                     let comMsg = {
@@ -218,6 +222,14 @@ const { createApp } = Vue
                     elem.visible = false
                 }
             })
+        },
+        showDrop(index){
+            if(this.cursor.index != false && this.cursor.index != index){
+                this.cursor.visible = false;
+                this.cursor.index = false;
+            }
+            this.cursor.visible = true;
+            this.cursor.index = index;
         }
     }
   }).mount('#app')

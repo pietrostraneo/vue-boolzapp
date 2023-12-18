@@ -73,9 +73,13 @@
                                 </div>
                             </div>
                             <div class="chat">
-                                <div class="msg d-flex justify-content-between" v-for="message in contacts[currentUser].messages" :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }" @click="cursor = !cursor">
+                                <div class="msg d-flex justify-content-between" v-for="message, index in contacts[currentUser].messages" :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }" @click="cursorVisible != cursorVisible">
                                     <span> {{message.message}} </span>
                                     <div><span class="date ms-3"> {{message.date}} </span></div>
+                                    <i class="fas fa-angle-down" @click="showDrop(index)"></i>
+                                    <div class="dropdown" v-if="cursor.visible == true && cursor.index == index ">
+                                        ciao
+                                    </div>
                                 </div>
                             </div>
                             <div class="texting d-flex">
