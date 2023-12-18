@@ -11,6 +11,10 @@ const { createApp } = Vue
             visible: false,
             index: false
         },
+        notifyOn: false,
+        notifyMsg: false,
+        showEmoji: false,
+        audio: false,
         contacts: [
             {
                 name: 'Michele',
@@ -19,7 +23,7 @@ const { createApp } = Vue
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
-                        message: 'Hai portato a spasso il cane?',
+                        message: 'Prova ad attivare le notifiche desktop!',
                         status: 'sent',
                     },
                     {
@@ -233,6 +237,15 @@ const { createApp } = Vue
         },
         deleteMsg(index){
             this.contacts[this.currentUser].messages.splice(index, 1);
+        },
+        notifyAlert(){
+            this.notifyOn = true;
+            this.notifyMsg = true;
+            if(notifyMsg = true){
+                setTimeout(() => {
+                    this.notifyMsg = false;
+                }, 2500);
+            }
         }
     }
   }).mount('#app')

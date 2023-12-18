@@ -26,17 +26,17 @@
                                     <i class="fas fa-ellipsis-vertical"></i>
                                 </div>
                             </div>
-                            <div class="notify d-flex gap-1">
+                            <div class="notify d-flex gap-1" v-if="!notifyOn">
                                 <i class="fas fa-bell-slash"></i>
                                 <div>
                                     <span>Ricevi notifiche di nuovi messaggi</span>
-                                    <div><a href="#">Attiva notifiche desktop</a></div>
+                                    <div><a href="#" @click="notifyAlert()">Attiva notifiche desktop</a></div>
                                 </div>
                             </div>
                             <div class="search">
                                 <input type="text" name="findchat" id="findchat" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="findTxt" @keyup="searchChat">
                             </div>
-                            <div class="chatlist">
+                            <div class="chatlist" :class="notifyOn ? 'chatlistFull' : ''">
                                 <ul>
                                     <li class="list-unstyled" v-for="(msg, index) in contacts" @click="changeUser(index); cursor.visible = false" v-show="msg.visible">
                                         <div class="chat-container d-flex justify-content-between" :class="(currentUser == index ? 'highlighted' : '')">
@@ -88,16 +88,20 @@
                                         <div><span class="date ms-3"> {{message.date}} </span></div>
                                     </div>
                                 </div>
+                                <div class="notifyOn slide-in-bottom" v-if="notifyMsg">
+                                    Hai attivato le notifiche desktop.
+                                </div>
+                                <emoji-picker v-if="showEmoji" class="light emoji"></emoji-picker>
                             </div>
                             <div class="texting d-flex">
                                 <div class="col-1 d-flex justify-content-center align-items-center">
-                                    <i class="fa-regular fa-face-smile"></i>
+                                    <i class="fa-regular fa-face-smile" @click="showEmoji = !showEmoji"></i>
                                 </div>
                                 <div class="col-10">
                                     <input type="text" name="sendText" id="sendText" placeholder="Scrivi un messaggio" class="form-control" v-model="newTxt" @keyup.enter="newMsg()" @keyup="changeIcon()">
                                 </div>
                                 <div class="col-1 d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-microphone" v-if="!texting"></i>
+                                    <i class="fas fa-microphone" v-if="!texting" @click="audio = !audio"></i>
                                     <i class="fas fa-paper-plane" v-if="texting" @click="newMsg()"></i>
                                 </div>
                             </div>

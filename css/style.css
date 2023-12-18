@@ -56,6 +56,10 @@ body{
     background-color: #FFFFFF;
 }
 
+.chatlistFull{
+    height: 85%;
+}
+
 .highlighted{
     background-color: #EAEAEA;
 }
@@ -153,3 +157,60 @@ i{
 .my-dropdown a{
     color: black;
 }
+
+.notifyOn{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: lime;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    position: absolute;
+    top: 700px;
+    left: 800px;
+}
+
+.emoji{
+    position: absolute;
+    top: 350px;
+    left: 520px;
+}
+
+.slide-in-bottom {
+	-webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+/**
+ * ----------------------------------------
+ * animation slide-in-bottom
+ * ----------------------------------------
+ */
+ @-webkit-keyframes slide-in-bottom {
+    0% {
+      -webkit-transform: translateY(1000px);
+              transform: translateY(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-bottom {
+    0% {
+      -webkit-transform: translateY(1000px);
+              transform: translateY(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  
+  
+  
